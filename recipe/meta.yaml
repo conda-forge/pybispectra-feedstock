@@ -1,5 +1,5 @@
 {% set name = "pybispectra" %}
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pybispectra-{{ version }}.tar.gz
-  sha256: 8bd947dec464e658fbc9bafe23ec30d033e503a2a74c049f86aad3c823dc6407
+  sha256: c38c2b2b1dc73bb5d789db87869e6b288f0b7c50c0d3c9b8725d8ace4f5cebf4
 
 build:
   noarch: python
