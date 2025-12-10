@@ -19,7 +19,7 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python {{ python_min }},<{{ python_max }}
     - hatchling
     - pip
   run:
@@ -39,7 +39,7 @@ test:
   commands:
     - pip check
   requires:
-    - python {{ python_min }}
+    - python {{ python_min }},<{{ python_max }}
     - pip
 
 about:
