@@ -1,6 +1,8 @@
 {% set name = "pybispectra" %}
 {% set version = "1.2.4" %}
 {% set python_min = "3.10" %}
+{% set python_max = "3.14" %}
+{% set is_macos_intel = osx and x86}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +15,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -21,14 +23,15 @@ requirements:
     - hatchling
     - pip
   run:
-    - python >={{ python_min }}
-    - joblib >=1.0
-    - matplotlib-base >=3.5
+    - python >={{ python_min }}, <{{ python_max }}
+    - joblib >=1.2
+    - matplotlib-base >=3.6
     - mne >=1.7
-    - numba >=0.55
-    - numpy >=1.21
-    - scikit-learn >=1.0
-    - scipy >=1.7
+    - numba >=0.56        # [not is_macos_intel]
+    - numba >=0.56, <0.63 # [is_macos_intel]
+    - numpy >=1.22
+    - scikit-learn >=1.1
+    - scipy >=1.8
 
 test:
   imports:
