@@ -13,8 +13,13 @@ source:
   sha256: 54326457d3c339833dc7fb8c225d68923c20766be36a0af923527a7998206970
 
 build:
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 1
+
+linter:
+  skip:
+    - lint_noarch_selectors
 
 requirements:
   host:
